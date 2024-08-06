@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class solution
+{
+    public static boolean Arm(int n)
+    {
+        int k = String.valueOf(n).length();
+        int dup = n;
+        int sum = 0;
+        
+        while(n>0)
+        {
+            int ld = n%10;
+            sum += Math.pow(ld,k);
+            n=n/10;
+
+        }
+
+       return (dup == sum) ? true:false;
+        
+    }
+
+    public static void main(String args[])
+    {
+        A ob = new A();
+        int n = Integer.parseInt(args[0]);
+        if(Arm(n) == true)
+        {
+            System.out.println(n+ " is an Armstrong no");
+        } 
+        else
+        {
+            System.out.println(n+ " not an Armstrong no");
+        }
+    }
+}
+ 

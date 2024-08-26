@@ -1,0 +1,45 @@
+import java.util.*;
+class Solution 
+{
+    public int[] selectionSort(int[] nums) 
+    {
+   
+       for(int i=0; i<=nums.length-2; i++)
+       {
+        int min = i;
+        for(int j=i; j<=nums.length-1; j++)
+        {
+            if(nums[j] < nums[min])
+            {
+                min = j;
+            }
+        }
+        int temp = nums[min];
+        nums[min] = nums[i];
+        nums[i] = temp;
+       }
+       return nums;
+    }
+    public static void main(String args[])
+    {
+     Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int nums[] = new int[n];
+        for(int i=0; i<n; i++)
+        {
+          nums[i] = sc.nextInt();
+        }
+        Solution sol = new Solution();
+        int arr[] = sol.selectionSort(nums);
+        System.out.print("Sorted array:");
+        for (int num : arr) 
+        {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+       
+    }
+}
+
+//Time Complexity:O(n^2) due to nested loops for sorting elements
+//Space Complexity:O(1) as the sorting is done in place without additional arrays.
